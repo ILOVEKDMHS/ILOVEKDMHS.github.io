@@ -11,11 +11,11 @@
   <p>
     <br>
     CHESS
-    <새로고침 링크(https://ilovekdmhs.github.io)>
+    새로고침 링크(https://ilovekdmhs.github.io)
   </p>
 
   <p>
-    [![Hello, world!](Image/체스.png)](https://velog.io/@yoosion030/github-page-%ED%8C%8C%EC%9D%BC%EA%B2%BD%EB%A1%9C)
+    !("Image/체스.png")(https://velog.io/@yoosion030/github-page-%ED%8C%8C%EC%9D%BC%EA%B2%BD%EB%A1%9C)
   </p>
 </body>
 
