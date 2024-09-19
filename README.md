@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    [새로고침 링크](https://ilovekdmhs.github.io/)
+    [새로고침 링크](https://ilovekdmhs.github.io)
   </p>
 </body>
 
