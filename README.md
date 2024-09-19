@@ -7,11 +7,11 @@
   <p>
     CHESS
     <br>
-    <img src="Image/체스.png"
+    <img src="Image/체스.png">
   </p>
 
   <p>
-    [새로고침 링크]
+    [새로고침 링크](https://ilovekdmhs.github.io/)
   </p>
 </body>
 
