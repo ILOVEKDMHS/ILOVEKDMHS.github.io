@@ -7,7 +7,7 @@
   <p>
     CHESS
     <br>
-    <img src="Image/체스.png">
+    <img src="Image/체스.png">{: width="50" height="50"}
   </p>
 
   <p>
