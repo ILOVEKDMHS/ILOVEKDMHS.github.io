@@ -6,7 +6,7 @@
 
   <p>
     C<br>H<br>E<br>S<br>S<br>
-    <img src="/Image/체스.png">
+    <img src="Image/체스.png">
   </p>
 </body>
 
