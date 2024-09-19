@@ -1,5 +1,5 @@
 <html>
-        <div lang="kr">
+        <div lang="en">
             <p> welcome to my site.</p>
         </div>
     <head>
