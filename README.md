@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <img src="Image/체스.png">
+    집가고싶다
 </head>
 <body>
 
