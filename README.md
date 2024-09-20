@@ -10,7 +10,7 @@
     </head>
     <body>
         <div lang="ko">
-                <a href=index.html><img src="./Image/체스.png" width="400" height="400"></a>
+                <a href=mainpage.html><img src="./Image/체스.png" width="400" height="400"></a>
                 <br>
                 <p><a href="https://ilovekdmhs.github.io/">사이트 새로고침하기</a></p>
                 <br>
