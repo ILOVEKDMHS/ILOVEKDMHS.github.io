@@ -3,7 +3,7 @@
         width: 800px;
         height: 35px;
     }
-    menu nav li{
+    menu ul li{
         background-color: #000;
         list-style: none;
         float: left;
