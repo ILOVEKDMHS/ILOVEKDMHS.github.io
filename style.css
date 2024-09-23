@@ -3,5 +3,21 @@
         width: 800px;
         height: 35px;
     }
+    menu ul li{
+        background-color: #000;
+        list-style: none;
+        float: left;
+        line-height: 30px;
+        text-align: center;
+    }
+    menu.link{
+        width: 190px;
+        text-decoration: none;
+        display: bock;
+        color: #fff;
+    }
 
+    menu.link:hover{
+        text-decoration: line;
+    }
 </style> 
