@@ -3,13 +3,13 @@
         background-color: red;
         width: 800px;
         height: 35px;}
-    menu ul li{
+    li{
         background-color: red;
         list-style: none;
         float: left;
         line-height: 30px;
         text-align: center;}
-    menu.link{
+    li{
         width: 190px;
         text-decoration: none;
         display: bock;
