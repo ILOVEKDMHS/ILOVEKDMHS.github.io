@@ -2,23 +2,18 @@
     .manu{
         background-color: yellow;
         width: 800px;
-        height: 35px;
-    }
+        height: 35px;}
     .menu ul li{
         background-color: red;
         list-style: none;
         float: left;
         line-height: 30px;
-        text-align: center;
-    }
+        text-align: center;}
     .menu.link{
         width: 190px;
         text-decoration: none;
         display: bock;
-        color: #black;
-    }
-
+        color: black;}
     .menu.link:hover{
-        text-decoration: line;
-    }
+        text-decoration: line;}
 </style> 
