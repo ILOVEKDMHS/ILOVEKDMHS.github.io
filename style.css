@@ -1,19 +1,19 @@
 <style>
-    manu{
+    .manu{
         background-color: red;
         width: 800px;
         height: 35px;}
-    li{
+    .li{
         background-color: red;
         list-style: none;
         float: left;
         line-height: 30px;
         text-align: center;}
-    li{
+    .li{
         width: 190px;
         text-decoration: none;
         display: bock;
         color: black;}
-    menu.link:hover{
+    .menu.link:hover{
         text-decoration: line;}
 </style> 
