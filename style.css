@@ -1,10 +1,13 @@
     .manu{
         background-color: black;
         width: 800px;
-        height: 35px;
+        height: 35px;}
+    .menu ul li{
+        background-color: red;
         list-style: none;
         text-decoration-line: none;
         float: left;
+        line-height: 30px;
         text-align: center;}
     .menu.link{
         width: 190px;
