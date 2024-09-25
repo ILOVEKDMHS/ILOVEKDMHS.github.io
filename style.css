@@ -1,4 +1,5 @@
         <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
                 .topMenu {
                         height: 30px;
                         width: 800px; 
@@ -19,7 +20,7 @@
                         width: 150px;
                         font-size: 12px;
                         font-weight: bold;
-                        font-family: "Trebuchet MS", Dotum, Arial;
+                        font-family: "Nanum Gothic", Dotum, Arial;
                 }
                 .topMenu .menuLink:hover {
                         background-color: #4d4d4d;
