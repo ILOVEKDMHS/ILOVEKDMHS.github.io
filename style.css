@@ -1,10 +1,11 @@
     .manu{
-        background-color: red;
+        background-color: black;
         width: 800px;
         height: 35px;}
     .menu ul li{
-        background-color: red;
+        background-color: white;
         list-style: none;
+        text-decoration: line;
         float: left;
         line-height: 30px;
         text-align: center;}
@@ -12,6 +13,6 @@
         width: 190px;
         text-decoration: none;
         display: bock;
-        color: black;}
+        color: gray;}
     .menu.link:hover{
         text-decoration: line;} 
