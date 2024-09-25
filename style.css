@@ -1,11 +1,2 @@
-    .manu{
-        background-color: black;
-        width: 800px;
-        height: 35px;}
-    .li{
-        background-color: black;
-        list-style: none;
-        text-decoration-line: none;
-        float: left;
-        line-height: 30px;
-        text-align: center;}
+  .menu {
+      background-color: orange;}
