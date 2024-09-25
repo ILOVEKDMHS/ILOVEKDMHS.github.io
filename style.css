@@ -1,8 +1,8 @@
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
                 .topMenu {
-                        height: 50px;
-                        width: 800px; 
+                        height: 30px;
+                        width: 850px; 
                 }
                 .topMenu ul li {
                         list-style: none; 
@@ -17,8 +17,8 @@
                         text-decoration:none;
                         color: white;
                         display: block;
-                        width: 150px;
-                        font-size: 20px;
+                        width: 200px;
+                        font-size: 15px;
                         font-weight: none;
                         font-family: "Nanum Gothic", Dotum, Arial;
                 }
