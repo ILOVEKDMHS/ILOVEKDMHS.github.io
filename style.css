@@ -1,7 +1,10 @@
 <style>
   .menu {
-      background-color: blue;}
+      height: 30px;
+      width: 850px;
+  }
   .menu ul li {
       color: red;
-      background-color: orange;}
+      background-color: #2d2d2d;
+  }
 </style>
