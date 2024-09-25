@@ -2,17 +2,10 @@
         background-color: black;
         width: 800px;
         height: 35px;}
-    .menu ul li{
+    .li{
         background-color: black;
         list-style: none;
         text-decoration-line: none;
         float: left;
         line-height: 30px;
         text-align: center;}
-    .menu.link{
-        width: 190px;
-        text-decoration: none;
-        display: bock;
-        color: gray;}
-    .menu.link:hover{
-        text-decoration: line;} 
