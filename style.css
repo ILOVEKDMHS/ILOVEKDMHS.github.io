@@ -20,6 +20,7 @@
                         width: 200px;
                         font-size: 15px;
                         font-weight: none;
+                        transform: skew(-0.1deg);
                         font-family: "Nanum Gothic", Dotum, Arial;
                 }
                 .topMenu .menuLink:hover {
