@@ -3,9 +3,10 @@
         width: 800px;
         height: 35px;}
     .menu ul li{
-        background-color: white;
+        background-color: black;
         list-style: none;
         text-decoration: none;
+        text-color: white;
         float: left;
         line-height: 30px;
         text-align: center;}
