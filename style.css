@@ -5,7 +5,7 @@
     .menu ul li{
         background-color: white;
         list-style: none;
-        text-decoration: line;
+        text-decoration: none;
         float: left;
         line-height: 30px;
         text-align: center;}
