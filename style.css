@@ -20,10 +20,12 @@
                         width: 250px;
                         font-size: 15px;
                         font-weight: none;
-                        transform: skew(-0.1deg);
                         font-family: "Nanum Gothic";
+                        transform: skew(-0.1deg);
+
                 }
                 .topMenu .menuLink:hover {
                         background-color: #4d4d4d;
+                        text-decoration:line;
                 }
         </style>
