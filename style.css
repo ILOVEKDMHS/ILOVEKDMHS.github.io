@@ -2,7 +2,7 @@
         background-color: black;
         width: 800px;
         height: 35px;}
-    .menu ul li{
+    .menu.ul.li{
         background-color: red;
         list-style: none;
         text-decoration-line: none;
