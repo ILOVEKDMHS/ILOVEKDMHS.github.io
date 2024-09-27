@@ -26,6 +26,6 @@
                 }
                 .topMenu .menuLink:hover {
                         background-color: #4d4d4d;
-                        text-decoration:line;
+                        text-decoration:underline;
                 }
         </style>
