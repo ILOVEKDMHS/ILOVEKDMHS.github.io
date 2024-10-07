@@ -3,13 +3,15 @@ let isTimerActive = false;
 
 function startTimer(minutes) {
     if (isTimerActive) return;
-    
+
     isTimerActive = true;
     let duration = minutes * 60 * 1000; // 밀리초로 변환
     let endTime = Date.now() + duration;
 
     inactivityTimer = setTimeout(() => {
-        document.getElementById('alertSound').play();
+        document.getElementById('alertSound').play().catch(error => {
+            console.error("오디오 재생 오류:", error);
+        });
         resetTimer();
     }, duration);
 
@@ -35,6 +37,7 @@ function monitorActivity(endTime) {
     window.addEventListener('keypress', resetTimerActivity);
 }
 
+// 버튼 클릭 시 타이머 시작
 document.getElementById('startButton').addEventListener('click', () => {
     const minutes = parseInt(document.getElementById('timerInput').value);
     if (isNaN(minutes) || minutes <= 0) {
