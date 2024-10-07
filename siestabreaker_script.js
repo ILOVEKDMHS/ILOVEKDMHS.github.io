@@ -1,74 +1,51 @@
 let inactivityTimer;
-let isTimerActive = false;
-let remainingTimeDisplay = document.getElementById('remainingTime'); // 남은 시간 표시 요소
+let countdownInterval;
+const statusText = document.getElementById('statusText');
+const alarmSound = document.getElementById('alarmSound');
+const timeoutInput = document.getElementById('timeout');
+const startButton = document.getElementById('startButton');
+let userTimeout = 0;
+let remainingTime = 0;
 
-function startTimer(minutes) {
-    if (isTimerActive) return;
-
-    isTimerActive = true;
-    let duration = minutes * 60 * 1000; // 밀리초로 변환
-    let endTime = Date.now() + duration;
-
-    inactivityTimer = setTimeout(() => {
-        document.getElementById('alertSound').play().catch(error => {
-            console.error("오디오 재생 오류:", error);
-        });
-        resetTimer();
-    }, duration);
-
-    monitorActivity(endTime);
-    updateRemainingTime(endTime); // 남은 시간 업데이트 함수 호출
-}
-
+// 타이머 리셋 및 카운트다운 업데이트
 function resetTimer() {
-    clearTimeout(inactivityTimer);
-    isTimerActive = false;
-    remainingTimeDisplay.textContent = '남은 시간: 0분 0초'; // 남은 시간 초기화
-}
+    clearTimeout(inactivityTimer);  // 기존 타이머 초기화
+    clearInterval(countdownInterval); // 기존 카운트다운 초기화
+    remainingTime = userTimeout;  // 설정한 시간을 남은 시간에 복사
 
-function monitorActivity(endTime) {
-    const resetTimerActivity = () => {
-        resetTimer();
-        const remainingTime = endTime - Date.now();
-        if (remainingTime > 0) {
-            setTimeout(() => startTimer(remainingTime / (1000 * 60)), 100);
-        }
-    };
+    statusText.textContent = `남은 시간: ${remainingTime}초`;
 
-    window.addEventListener('mousemove', resetTimerActivity);
-    window.addEventListener('keypress', resetTimerActivity);
-}
-
-function updateRemainingTime(endTime) {
-    const interval = setInterval(() => {
-        const now = Date.now();
-        const remainingTime = endTime - now;
-
+    countdownInterval = setInterval(() => {
+        remainingTime--;
+        statusText.textContent = `남은 시간: ${remainingTime}초`;
         if (remainingTime <= 0) {
-            clearInterval(interval);
-            remainingTimeDisplay.textContent = '남은 시간: 0분 0초'; // 남은 시간이 0이 되면 초기화
-        } else {
-            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-            remainingTimeDisplay.textContent = `남은 시간: ${minutes}분 ${seconds}초`;
+            clearInterval(countdownInterval);
+            triggerAlarm();
         }
-    }, 1000); // 1초마다 업데이트
+    }, 1000);  // 1초마다 남은 시간 업데이트
+
+    inactivityTimer = setTimeout(triggerAlarm, userTimeout * 1000);  // 최종 타이머
 }
 
-// 버튼 클릭 시 타이머 시작
-document.getElementById('startButton').addEventListener('click', () => {
-    const minutes = parseInt(document.getElementById('timerInput').value);
-    if (isNaN(minutes) || minutes <= 0) {
-        alert("유효한 분 수를 입력해주세요.");
+// 알람 재생 함수
+function triggerAlarm() {
+    statusText.textContent = "아무 활동이 감지되지 않았습니다. 알람이 울립니다!";
+    alarmSound.play();  // 소리 재생
+}
+
+// 사용자 이벤트 감지 (마우스/키보드)
+function startMonitoring() {
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('keydown', resetTimer);
+}
+
+// 시작 버튼 클릭 시 타이머 설정
+startButton.addEventListener('click', () => {
+    userTimeout = parseInt(timeoutInput.value);
+    if (isNaN(userTimeout) || userTimeout <= 0) {
+        statusText.textContent = "유효한 시간을 입력하세요.";
     } else {
-        startTimer(minutes);
+        resetTimer();  // 타이머 초기화 및 시작
+        startMonitoring();  // 사용자 활동 감지 시작
     }
 });
-
-// 눈 깜빡임 감지용 자리 표시자
-function initBlinkDetection() {
-    // clmtrackr 또는 face-api.js와 같은 라이브러리를 사용하여 눈 깜빡임 감지를 구현하세요.
-}
-
-// 필요에 따라 init 함수를 호출하세요.
-// initBlinkDetection();
