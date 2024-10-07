@@ -93,7 +93,7 @@
         function resetTimer() {
             clearTimeout(inactivityTimer);  // 기존 타이머 초기화
             inactivityTimer = setTimeout(triggerAlarm, userTimeout * 1000);  // 새 타이머 시작
-            statusText.textContent = `타이머 시작됨: ${userTimeout}초 동안 아무 활동이 없으면 알람이 울립니다.`;
+            statusText.textContent = `타이머 시작됨: ${inactivityTimer}초 동안 아무 활동이 없으면 알람이 울립니다.`;
         }
 
         // 알람 재생 함수
