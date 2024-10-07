@@ -46,3 +46,9 @@ button:hover {
 audio {
     display: none; /* 오디오 엘리먼트 숨김 */
 }
+
+.time-display {
+    font-size: 24px; /* 글자 크기 */
+    margin-top: 20px; /* 위쪽 여백 */
+    color: #333; /* 글자 색상 */
+}
