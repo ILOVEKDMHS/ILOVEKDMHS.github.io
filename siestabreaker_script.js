@@ -23,7 +23,7 @@ function startTimer(minutes) {
 function resetTimer() {
     clearTimeout(inactivityTimer);
     isTimerActive = false;
-    remainingTimeDisplay.textContent = ''; // 남은 시간 초기화
+    remainingTimeDisplay.textContent = '남은 시간: 0분 0초'; // 남은 시간 초기화
 }
 
 function monitorActivity(endTime) {
@@ -46,7 +46,7 @@ function updateRemainingTime(endTime) {
 
         if (remainingTime <= 0) {
             clearInterval(interval);
-            remainingTimeDisplay.textContent = ''; // 남은 시간이 0이 되면 초기화
+            remainingTimeDisplay.textContent = '남은 시간: 0분 0초'; // 남은 시간이 0이 되면 초기화
         } else {
             const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
