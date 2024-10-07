@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사용자 비활성화 감지</title>
+    <title>사용자 움직임 감지</title>
     <link rel="stylesheet" href="siestabreaker_style.css"> <!-- CSS 파일 연결 -->
 </head>
 <body>
 
     <div class="container">
-        <h1>비활성화 알람 설정</h1>
+        <h1>움직임 알람 설정</h1>
         <label for="timeout">경고 시간 설정 (초):</label><br>
         <input type="number" id="timeout" placeholder="초 단위 입력" min="1"><br>
         <button id="startButton">알람 시작</button>
@@ -17,9 +17,16 @@
         <div class="status" id="statusText">타이머가 설정되지 않았습니다.</div>
     </div>
 
+    <!-- 비디오 스트림 -->
+    <div class="video-container">
+        <video id="video" width="640" height="480" autoplay muted></video>
+    </div>
+
     <!-- 알람 소리 파일 -->
     <audio id="alarmSound" src="alert2.mp3" preload="auto"></audio>
 
+    <!-- face-api.js CDN을 통해 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
     <script src="siestabreaker_script.js"></script> <!-- JavaScript 파일 연결 -->
 
 </body>
