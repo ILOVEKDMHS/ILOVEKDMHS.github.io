@@ -30,7 +30,9 @@ function resetTimer() {
 // 알람 재생 함수
 function triggerAlarm() {
     statusText.textContent = "아무 활동이 감지되지 않았습니다. 알람이 울립니다!";
-    alarmSound.play();  // 소리 재생
+    alarmSound.play();
+    alarmSound.play();
+    alarmSound.play();
 }
 
 // 사용자 이벤트 감지 (마우스/키보드)
