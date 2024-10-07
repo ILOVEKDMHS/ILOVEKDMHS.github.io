@@ -1,5 +1,6 @@
 let inactivityTimer;
 let isTimerActive = false;
+let remainingTimeDisplay = document.getElementById('remainingTime'); // 남은 시간 표시 요소
 
 function startTimer(minutes) {
     if (isTimerActive) return;
@@ -16,12 +17,13 @@ function startTimer(minutes) {
     }, duration);
 
     monitorActivity(endTime);
+    updateRemainingTime(endTime); // 남은 시간 업데이트 함수 호출
 }
 
 function resetTimer() {
     clearTimeout(inactivityTimer);
     isTimerActive = false;
-    alert("타이머가 리셋되었습니다.");
+    remainingTimeDisplay.textContent = ''; // 남은 시간 초기화
 }
 
 function monitorActivity(endTime) {
@@ -35,6 +37,22 @@ function monitorActivity(endTime) {
 
     window.addEventListener('mousemove', resetTimerActivity);
     window.addEventListener('keypress', resetTimerActivity);
+}
+
+function updateRemainingTime(endTime) {
+    const interval = setInterval(() => {
+        const now = Date.now();
+        const remainingTime = endTime - now;
+
+        if (remainingTime <= 0) {
+            clearInterval(interval);
+            remainingTimeDisplay.textContent = ''; // 남은 시간이 0이 되면 초기화
+        } else {
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+            remainingTimeDisplay.textContent = `남은 시간: ${minutes}분 ${seconds}초`;
+        }
+    }, 1000); // 1초마다 업데이트
 }
 
 // 버튼 클릭 시 타이머 시작
