@@ -32,7 +32,7 @@ function resetTimer() {
 
 // 알람 재생 함수
 function triggerAlarm() {
-    statusText.textContent = "움직임이 감지되지 않았습니다. 알람이 울립니다!";
+    statusText.textContent = "얼굴이 감지되지 않았습니다. 알람이 울립니다!";
     alarmSound.play();  // 소리 재생
 }
 
@@ -47,9 +47,10 @@ async function startFaceDetection() {
     const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
     video.srcObject = stream;
 
-    // 모델을 CDN에서 불러옴
+    // Tiny Face Detector 모델을 CDN에서 불러오기
     await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/weights/');
-    
+
+    // 1초마다 얼굴 감지
     setInterval(async () => {
         const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions());
         if (detections.length > 0) {
