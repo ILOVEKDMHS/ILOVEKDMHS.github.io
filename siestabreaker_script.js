@@ -1,6 +1,13 @@
 let inactivityTimer;
 let countdownInterval;
 const statusText = document.getElementById('statusText');
+const faceStatusText = document.createElement('div'); // 얼굴 인식 상태 표시용
+document.body.appendChild(faceStatusText); // 얼굴 인식 상태 표시를 body에 추가
+faceStatusText.style.fontSize = '20px';
+faceStatusText.style.color = '#333';
+faceStatusText.style.marginTop = '20px';
+faceStatusText.style.textAlign = 'center';
+
 const alarmSound = document.getElementById('alarmSound');
 const timeoutInput = document.getElementById('timeout');
 const startButton = document.getElementById('startButton');
@@ -56,8 +63,12 @@ async function startFaceDetection() {
         if (detections.length > 0) {
             faceDetected = true;
             resetTimer();
+            faceStatusText.textContent = "얼굴이 인식되었습니다.";  // 얼굴이 인식되었을 때
+            faceStatusText.style.color = "green";  // 녹색으로 표시
         } else {
             faceDetected = false;
+            faceStatusText.textContent = "얼굴을 인식할 수 없습니다.";  // 얼굴이 인식되지 않았을 때
+            faceStatusText.style.color = "red";  // 빨간색으로 경고
         }
     }, 1000);  // 매초마다 얼굴 감지
 }
