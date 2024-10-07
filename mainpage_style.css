@@ -1,31 +1,29 @@
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-                .topMenu {
-                        height: 50px;
-                        width: 1000px; 
-                }
-                .topMenu ul li {
-                        list-style: none; 
-                        color: white;
-                        background-color: #2d2d2d;
-                        float: left;
-                        line-height: 50px;
-                        vertical-align: middle;
-                        text-align: center;
-                }
-                .topMenu .menuLink {
-                        text-decoration:none;
-                        color: white;
-                        display: block;
-                        width: 250px;
-                        font-size: 15px;
-                        font-weight: none;
-                        font-family: "Nanum Gothic";
-                        transform: skew(-0.1deg);
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+        .topMenu {
+                height: 50px;
+                width: 1000px; 
+        }
+        .topMenu ul li {
+                list-style: none; 
+                color: white;
+                background-color: #2d2d2d;
+                float: left;
+                line-height: 50px;
+                vertical-align: middle;
+                text-align: center;
+        }
+        .topMenu .menuLink {
+                text-decoration:none;
+                color: white;
+                display: block;
+                width: 250px;
+                font-size: 15px;
+                font-weight: none;
+                font-family: "Nanum Gothic";
+                transform: skew(-0.1deg);
 
-                }
-                .topMenu .menuLink:hover {
-                        background-color: #4d4d4d;
-                        text-decoration:underline;
-                }
-        </style>
+        }
+        .topMenu .menuLink:hover {
+                background-color: #4d4d4d;
+                text-decoration:underline;
+        }
