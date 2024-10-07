@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
         .topMenu {
-                height: 40px;
+                height: 60px;
                 width: 880px; 
         }
         .topMenu ul li {
@@ -8,7 +8,7 @@
                 color: white;
                 background-color: #2d2d2d;
                 float: left;
-                line-height: 40px;
+                line-height: 60px;
                 vertical-align: middle;
                 text-align: center;
         }
