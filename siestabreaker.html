@@ -3,31 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사용자 움직임 감지</title>
-    <link rel="stylesheet" href="siestabreaker_style.css"> <!-- CSS 파일 연결 -->
+    <title>Siesta Breaker</title>
+    <link rel="stylesheet" href="siestabreaker_style.css">
 </head>
 <body>
+    <h1>Siesta Breaker</h1>
+    <label for="timerInput">타이머 설정 (분):</label>
+    <input type="number" id="timerInput" min="1" placeholder="분">
+    <button id="startButton">타이머 시작</button>
+    
+    <audio id="alertSound" src="alert.mp3"></audio>
 
-    <div class="container">
-        <h1>얼굴 인식 기반 비활성화 알람 설정</h1>
-        <label for="timeout">경고 시간 설정 (초):</label><br>
-        <input type="number" id="timeout" placeholder="초 단위 입력" min="1"><br>
-        <button id="startButton">알람 시작</button>
-
-        <div class="status" id="statusText">타이머가 설정되지 않았습니다.</div>
-    </div>
-
-    <!-- 비디오 스트림 -->
-    <div class="video-container">
-        <video id="video" width="640" height="480" autoplay muted></video>
-    </div>
-
-    <!-- 알람 소리 파일 -->
-    <audio id="alarmSound" src="alert.mp3" preload="auto"></audio>
-
-    <!-- face-api.js를 CDN을 통해 로드 -->
-    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-    <script defer src="siestabreaker_script.js"></script> <!-- JavaScript 파일 연결 -->
-
+    <script src="siestabreaker_script.js"></script>
 </body>
 </html>
