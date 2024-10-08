@@ -1,53 +1,64 @@
-let inactivityTimer;
-let countdownInterval;
-const statusText = document.getElementById('statusText');
-const alarmSound = document.getElementById('alarmSound');
-const timeoutInput = document.getElementById('timeout');
-const startButton = document.getElementById('startButton');
-let userTimeout = 0;
-let remainingTime = 0;
+let video = document.getElementById('video');
+let startButton = document.getElementById('startButton');
+let statusText = document.getElementById('status');
+let faceDetected = false;
+let drowsy = false;
 
-// 타이머 리셋 및 카운트다운 업데이트
-function resetTimer() {
-    clearTimeout(inactivityTimer);  // 기존 타이머 초기화
-    clearInterval(countdownInterval); // 기존 카운트다운 초기화
-    remainingTime = userTimeout;  // 설정한 시간을 남은 시간에 복사
+// 웹캠 시작
+async function startWebcam() {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+    video.srcObject = stream;
+}
 
-    statusText.textContent = `남은 시간: ${remainingTime}초`;
+// 얼굴 인식 및 눈 깜빡임 감지
+async function startFaceDetection() {
+    await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/weights/');
+    await faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/weights/');
+    
+    setInterval(async () => {
+        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+        if (detections.length > 0) {
+            faceDetected = true;
+            const landmarks = detections[0].landmarks;
+            const leftEye = landmarks.getLeftEye();
+            const rightEye = landmarks.getRightEye();
+            const ear = calculateEAR(leftEye, rightEye);
 
-    countdownInterval = setInterval(() => {
-        remainingTime--;
-        statusText.textContent = `남은 시간: ${remainingTime}초`;
-        if (remainingTime <= 0) {
-            clearInterval(countdownInterval);
-            triggerAlarm();
+            if (ear < 0.2) {  // EAR 임계값 이하이면 졸음 상태로 판단
+                statusText.textContent = "졸음 상태가 감지되었습니다!";
+                statusText.style.color = "red";
+                if (!drowsy) {
+                    alert("졸음이 감지되었습니다!");  // 알림 발생
+                    drowsy = true;
+                }
+            } else {
+                statusText.textContent = "정상 상태입니다.";
+                statusText.style.color = "green";
+                drowsy = false;
+            }
+        } else {
+            faceDetected = false;
+            statusText.textContent = "얼굴을 인식할 수 없습니다.";
+            statusText.style.color = "red";
         }
-    }, 1000);  // 1초마다 남은 시간 업데이트
-
-    inactivityTimer = setTimeout(triggerAlarm, userTimeout * 1000);  // 최종 타이머
+    }, 1000);  // 1초마다 얼굴 및 눈 깜빡임 체크
 }
 
-// 알람 재생 함수
-function triggerAlarm() {
-    statusText.textContent = "아무 활동이 감지되지 않았습니다. 알람이 울립니다!";
-    alarmSound.play();
-    alarmSound.play();
-    alarmSound.play();
-}
-
-// 사용자 이벤트 감지 (마우스/키보드)
-function startMonitoring() {
-    document.addEventListener('mousemove', resetTimer);
-    document.addEventListener('keydown', resetTimer);
-}
-
-// 시작 버튼 클릭 시 타이머 설정
-startButton.addEventListener('click', () => {
-    userTimeout = parseInt(timeoutInput.value);
-    if (isNaN(userTimeout) || userTimeout <= 0) {
-        statusText.textContent = "유효한 시간을 입력하세요.";
-    } else {
-        resetTimer();  // 타이머 초기화 및 시작
-        startMonitoring();  // 사용자 활동 감지 시작
+// EAR(Eye Aspect Ratio) 계산
+function calculateEAR(leftEye, rightEye) {
+    function distance(p1, p2) {
+        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
     }
+
+    // 양쪽 눈의 가로/세로 거리 계산
+    const leftEAR = (distance(leftEye[1], leftEye[5]) + distance(leftEye[2], leftEye[4])) / (2.0 * distance(leftEye[0], leftEye[3]));
+    const rightEAR = (distance(rightEye[1], rightEye[5]) + distance(rightEye[2], rightEye[4])) / (2.0 * distance(rightEye[0], rightEye[3]));
+
+    return (leftEAR + rightEAR) / 2.0;
+}
+
+// 시작 버튼 클릭 이벤트
+startButton.addEventListener('click', async () => {
+    await startWebcam();
+    startFaceDetection();
 });
