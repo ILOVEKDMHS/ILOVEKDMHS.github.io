@@ -16,8 +16,9 @@ async function startWebcam() {
 async function startFaceDetection() {
     try {
         // face-api.js 모델 로드
-        await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/weights/');
-        await faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/weights/');
+        await Promise.all([
+          faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
+          faceapi.nets.faceLandmark68TinyNet.loadFromUri("/models"),
         
         // 모델이 정상적으로 로드되면 alert 메시지 띄우기
         alert("얼굴 인식 모델이 성공적으로 로드되었습니다.");
