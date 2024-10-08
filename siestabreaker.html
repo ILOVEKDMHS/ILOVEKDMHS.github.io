@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>낮잠 BREAKER</title>
-    <link rel="stylesheet" href="siestabreaker_style.css"> <!-- CSS 파일 연결 -->
+    <title>졸음 감지 시스템</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>시간설정</h1>
-        <label for="timeout">경고 시간 설정 (초):</label><br>
-        <input type="number" id="timeout" placeholder="단위:초" min="1"><br>
-        <button id="startButton">알람 시작</button>
-
-        <div class="status" id="statusText">타이머가 설정되지 않았습니다.</div>
+        <h1>얼굴 인식 및 졸음 감지</h1>
+        <button id="startButton">시작</button>
+        <p id="status">얼굴을 감지하는 중입니다...</p>
     </div>
-    <!-- 알람 소리 파일 -->
-    <audio id="alarmSound" src="alert3.mp3" preload="auto"></audio>
 
-    <script src="siestabreaker_script.js"></script> <!-- JavaScript 파일 연결 -->
+    <!-- 비디오 스트림 -->
+    <div class="video-container">
+        <video id="video" width="640" height="480" autoplay muted></video>
+    </div>
+
+    <!-- face-api.js와 TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
