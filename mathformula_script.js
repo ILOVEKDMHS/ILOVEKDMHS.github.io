@@ -26,11 +26,9 @@ function checkAnswer() {
     
     // 정답일 경우
     if (answerInput.trim() === questions[currentQuestionIndex].answer) {
-        alert("정답");
         resultText.textContent = "정답입니다!";
         resultText.style.color = "green";
         setTimeout(nextQuestion, 2000);  // 2초 후에 다음 문제로 넘어가기
-        alert("넘어가기 성공");
     } else {
         // 오답일 경우
         attempts++;
@@ -47,10 +45,9 @@ function checkAnswer() {
 
 // 다음 문제로 넘어가는 함수
 function nextQuestion() {
-    alert("다음문제로 넘어가기 성공");
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
-        loadQuestion();  // 다음 문제 로드
+        setTimeout(loadQuestion, 2000);  // 다음 문제 로드
     } else {
         // 문제가 끝났을 때
         const resultText = document.getElementById('resultText');
