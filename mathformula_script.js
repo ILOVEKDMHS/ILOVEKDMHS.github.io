@@ -31,7 +31,6 @@ function checkAnswer() {
         resultText.style.color = "green";
         setTimeout(nextQuestion, 2000);  // 2초 후에 다음 문제로 넘어가기
         alert("넘어가기 성공");
-        nextQuestion();
     } else {
         // 오답일 경우
         attempts++;
