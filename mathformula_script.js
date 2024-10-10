@@ -28,7 +28,7 @@ function checkAnswer() {
     if (answerInput.trim() === questions[currentQuestionIndex].answer) {
         resultText.textContent = "정답입니다!";
         resultText.style.color = "green";
-        setTimeout(nextQuestion, 2000);  // 2초 후에 다음 문제로 넘어가기
+        submitanswer.value = "넘어가기";  // 2초 후에 다음 문제로 넘어가기
     } else {
         // 오답일 경우
         attempts++;
@@ -57,7 +57,8 @@ function nextQuestion() {
 }
 
 // 시작 버튼 또는 확인 버튼 클릭 이벤트
-document.getElementById('submitAnswer').addEventListener('click', checkAnswer);
+document.getElementById('submitAnswer')
+document.addEventListener('click', checkAnswer);
 
 // 첫 문제 로드
 loadQuestion();
