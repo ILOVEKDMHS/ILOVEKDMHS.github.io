@@ -29,6 +29,7 @@ function checkAnswer() {
         resultText.textContent = "정답입니다!";
         resultText.style.color = "green";
         setTimeout(nextQuestion, 2000);  // 2초 후에 다음 문제로 넘어가기
+        nextQuestion()
     } else {
         // 오답일 경우
         attempts++;
