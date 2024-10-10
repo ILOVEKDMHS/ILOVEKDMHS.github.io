@@ -38,7 +38,7 @@ function checkAnswer() {
         } else {  // 두 번째 시도일 경우
             resultText.textContent = "오답입니다. 정답은 " + questions[currentQuestionIndex].answer + "입니다.";
             resultText.style.color = "red";
-            setTimeout(nextQuestion, 2000);  // 2초 후에 다음 문제로 넘어가기
+            setTimeout(nextQuestion, 2000);
         }
     }
 }
