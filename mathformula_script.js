@@ -36,4 +36,9 @@ document.getElementById('submitAnswer').addEventListener('click', function() {
 });
 
 // 첫 문제 로드
-loadQuestion();
+let i = 0;
+while (i < 20) { // 0, 1, 2가 출력됩니다.
+  loadQuestion();
+  i++;
+}
+
