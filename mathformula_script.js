@@ -27,10 +27,10 @@ function checkAnswer() {
         nextQuestion();  // 다음 문제로 넘어가는 함수 호출
         return;
     }
-
-    const answerInput = document.getElementById('answerInput').value;
-    const resultText = document.getElementById('resultText');
-    
+    else {
+        const answerInput = document.getElementById('answerInput').value;
+        const resultText = document.getElementById('resultText');
+    }
     // 정답일 경우
     if (answerInput.trim() === questions[currentQuestionIndex].answer) {
         resultText.textContent = "정답입니다!";
