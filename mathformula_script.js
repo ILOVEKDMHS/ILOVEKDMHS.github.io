@@ -9,6 +9,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let attempts = 0;  // 시도 횟수를 기록하는 변수
+let nextQuestionalert = 1;
 
 // 초기화 함수: 첫 문제를 로드
 function loadQuestion() {
@@ -28,17 +29,20 @@ function checkAnswer() {
     if (answerInput.trim() === questions[currentQuestionIndex].answer) {
         resultText.textContent = "정답입니다!";
         resultText.style.color = "green";
-        setTimeout(nextQuestion, 2000);  // 2초 후에 다음 문제로 넘어가기
+        nextQuestionalert = 0;
+        document.getElementById('submitAnswer').textContent = '다음 문제';
     } else {
         // 오답일 경우
         attempts++;
         if (attempts < 2) {  // 첫 번째 시도일 경우
             resultText.textContent = "오답입니다. 다시 시도해 보세요.";
             resultText.style.color = "red";
+            
         } else {  // 두 번째 시도일 경우
             resultText.textContent = "오답입니다. 정답은 " + questions[currentQuestionIndex].answer + "입니다.";
             resultText.style.color = "red";
-            setTimeout(nextQuestion, 2000);
+            nextQuestionalert = 0;
+            document.getElementById('submitAnswer').textContent = '다음 문제';
         }
     }
 }
@@ -57,7 +61,12 @@ function nextQuestion() {
 }
 
 // 시작 버튼 또는 확인 버튼 클릭 이벤트
-document.getElementById('submitAnswer').addEventListener('click', checkAnswer);
+document.getElementById('submitAnswer')
+if (nextQuestionalert=1) {
+    document.addEventListener('click', checkAnswer);
+} else {
+    document.addEventListener('click', nextQuestion);
+}
 
 // 첫 문제 로드
 loadQuestion();
