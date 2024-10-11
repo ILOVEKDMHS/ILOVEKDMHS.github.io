@@ -1,5 +1,5 @@
 const questions = [
-    { question: '(x + y)(x - y)', answer: 'x^2 - y^2' },
+    { question: '(x + y)(x - y)asdf', answer: 'x^2 - y^2' },
     { question: '(a + b)^2', answer: 'a^2 + 2ab + b^2' },
     { question: '(a - b)^2', answer: 'a^2 - 2ab + b^2' },
     { question: '(x + y)(x - y)', answer: 'x^2 - y^2' },
