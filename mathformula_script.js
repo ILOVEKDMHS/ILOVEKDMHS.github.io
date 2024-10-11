@@ -36,7 +36,8 @@ function checkAnswer() {
         attempts++;
         if (attempts < 2) {  // 첫 번째 시도일 경우
             resultText.textContent = "오답입니다. 다시 시도해 보세요.";
-            resultText.style.color = "red";
+            resultText.style.color = "red"
+            setTimeout(checkAnswer, 2000);
             
         } else {  // 두 번째 시도일 경우
             resultText.textContent = "오답입니다. 정답은 " + questions[currentQuestionIndex].answer + "입니다.";
